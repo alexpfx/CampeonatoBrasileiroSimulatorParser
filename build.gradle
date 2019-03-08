@@ -10,6 +10,7 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -25,6 +26,7 @@ dependencies {
 //    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-common:1.1.0'
 
     implementation 'com.google.code.gson:gson:2.8.5'
+
 }
 
 compileKotlin {
