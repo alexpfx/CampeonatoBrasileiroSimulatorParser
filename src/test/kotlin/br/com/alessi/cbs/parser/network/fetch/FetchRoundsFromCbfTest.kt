@@ -1,4 +1,4 @@
-package br.com.alessi.cbs.parser.network.fetchdata
+package br.com.alessi.cbs.parser.network.fetch
 
 import org.junit.Test
 

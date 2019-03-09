@@ -1,9 +1,9 @@
 package br.com.alessi.cbs.parser
 
-import br.com.alessi.cbs.parser.network.fetchdata.FetchRoundsFromCbf
-import br.com.alessi.cbs.parser.network.fetchdata.RoundFetcher
-import br.com.alessi.cbs.parser.network.storedata.retrofit.RoundStorer
-import br.com.alessi.cbs.parser.network.storedata.retrofit.RoundsParserService
+import br.com.alessi.cbs.parser.network.fetch.FetchRoundsFromCbf
+import br.com.alessi.cbs.parser.network.fetch.RoundFetcher
+import br.com.alessi.cbs.parser.network.store.SaveRounds
+import br.com.alessi.cbs.parser.network.store.RoundsParserService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -11,18 +11,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private lateinit var fetcher: RoundFetcher
-private lateinit var roundStorer: RoundStorer
+private lateinit var saveRounds: SaveRounds
+
+
 
 fun main() {
     initializeObjects()
-    val rounds = fetcher.fetchRounds()
-    roundStorer.store(rounds[0])
 
 }
 
 fun initializeObjects() {
     fetcher = FetchRoundsFromCbf()
-    roundStorer = RoundStorer(getService())
+    saveRounds = SaveRounds(getService())
 
 }
 
