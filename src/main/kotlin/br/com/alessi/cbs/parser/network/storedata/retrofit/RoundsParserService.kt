@@ -9,17 +9,9 @@ import retrofit2.http.POST
 
 interface RoundsParserService {
 
-    @Headers(
-        "Content-Type: application/json"
-    )
 
-
-    @POST("/classes/Rounds")
+    @POST("/classes/Rounds2018")
     fun storeRound(
-        @Header("X-Parse-Application-Id")
-        appId: String,
-        @Header("X-Parse-REST-API-Key")
-        restApiKey: String,
         @Body
         round: Round
 

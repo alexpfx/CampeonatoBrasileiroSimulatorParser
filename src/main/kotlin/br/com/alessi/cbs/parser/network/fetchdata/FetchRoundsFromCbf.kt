@@ -8,7 +8,7 @@ import org.jsoup.nodes.Element
 
 class FetchRoundsFromCbf : RoundFetcher {
     private val divisor = 10
-    private val games = 380
+    private val games = 10
     private val turn = 190
 
     private val url = "https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a/2018/"
@@ -35,14 +35,11 @@ class FetchRoundsFromCbf : RoundFetcher {
                 val homeTeam = Team(homeTeamElement.text(), 70.0, "")
                 val awayTeam = Team(awayTeamElement.text(), 70.0, "")
 
+                val matchInfo = MatchInfo(homeTeam, awayTeam, date.text(), time.text(), info.text())
 
-                var matchInfo = MatchInfo(homeTeam, awayTeam, date.text(), time.text(), info.text())
-                println(matchInfo)
                 thisRound.addMatch(matchInfo)
                 if (i.rem(divisor) == 0 && i < games) {
                     thisRound = createAndAddRound(i, rounds)
-                    println()
-                    println(thisRound)
                 }
             }
 
