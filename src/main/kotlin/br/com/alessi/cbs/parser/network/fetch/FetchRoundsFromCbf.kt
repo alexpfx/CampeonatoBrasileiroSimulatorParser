@@ -6,7 +6,7 @@ import br.com.alessi.cbs.parser.domain.Team
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 
-class FetchRoundsFromCbf : RoundFetcher {
+class FetchRoundsFromCbf : FetchRounds {
     private val divisor = 10
     private val games = 10
     private val turn = 190
